@@ -15,25 +15,17 @@ module-whatis  "\t apt-get install libhdf5-serial-dev          "
 module-whatis  "\t apt-get install libexodusii-dev libexodusii5"
 module-whatis  "\t download petsc with "
 module-whatis  "\t git clone https://bitbucket.org/petsc/petsc $petsc_version "
-module-whatis  "\t cd $petsc_version; "
+module-whatis  "\t cd $petsc_version; git tag; git checkout tags/v3.5.2 -b v3.5.2  "
 module-whatis  "\t petsc configured with "
-module-whatis  "\t ./config/configure.py --with-shared-libraries --with-clanguage=c++ --CFLAGS='$cflags' --CXXFLAGS='$cxxflags' --download-ctetgen  --download-triangle --with-debugging=yes --with-blas-lapack-dir=/opt/apps/MKL/12.1/lib/intel64/  --with-exodusii-lib=\[/usr/lib/x86_64-linux-gnu/libexoIIv2.so\] --with-netcdf-dir=/usr/lib --with-hdf5-dir=/usr/lib --with-c2html=0 --with-exodusii-include=/usr/include  --with-opencl-include=/usr/include/ --with-opencl-lib=/usr/lib/libOpenCL.so  --download-viennacl=yes"
-module-whatis  "\t cd \$PETSC_DIR/\$PETSC_ARCH/externalpackages; git clone https://bitbucket.org/petsc/petsc4py.git; cd petsc4py; python setup.py install --home=\$PETSC_DIR/\$PETSC_ARCH"
- 
- 
- 
-
-
-
-
+module-whatis  "\t ./config/configure.py --with-shared-libraries --with-clanguage=c++ --CFLAGS='$cflags' --CXXFLAGS='$cxxflags' --download-ctetgen  --download-triangle --with-debugging=yes --with-exodusii-lib=\[/usr/lib/x86_64-linux-gnu/libexoIIv2.so\] --with-netcdf-lib=\[/usr/lib/libnetcdf.so\] --with-netcdf-include=/usr/include --with-hdf5-include=/usr/include/hdf5/serial/ --with-hdf5-lib=\[/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so\] --with-c2html=0 --with-exodusii-include=/usr/include   "
 
 eval set  [ array get env HOME ]
 
 #module load epd/7.3.1 
 #module load cuda/4.2
 #local environment
-set          linuxdistro        precise
-set          compiler           gcc-4.6.3
+set          linuxdistro        xenial
+set          compiler           gcc-5.4.0
 set          library_dir        /opt/apps
 ## MPI   environment
 ## set    mpi_version           mpich2-1.2
