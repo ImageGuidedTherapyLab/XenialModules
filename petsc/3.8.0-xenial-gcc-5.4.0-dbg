@@ -12,7 +12,7 @@ set          petsc_version   petsc-3.8.0
 module-whatis  "\t apt-get install libnetcdf-dev               "
 module-whatis  "\t apt-get install libhdf5-serial-dev  libhdf5-10-dbg libhdf5-dev        "
 module-whatis  "\t apt-get install libexodusii-dev libexodusii5"
-module-whatis  "\t apt-get install openmpi-bin mpich"
+module-whatis  "\t apt-get install openmpi-bin "
 module-whatis  "\t apt-get install valgrind-dbg"
 module-whatis  "\t download petsc with "
 module-whatis  "\t git clone https://bitbucket.org/petsc/petsc $petsc_version "
