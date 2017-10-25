@@ -1,0 +1,17 @@
+#%Module3.1.6#####################################################################
+##
+# for Tcl script use only
+set     version         12.0
+
+proc ModulesHelp { } {
+        global version
+        puts stderr "\tThis module loads cubit $version \n"
+}
+
+module-whatis   "loads the cubit $version "
+
+set     cubit_dir     /opt/apps/cubit/v$version
+
+
+prepend-path   PATH             $cubit_dir
+prepend-path   LD_LIBRARY_PATH  $cubit_dir/bin
