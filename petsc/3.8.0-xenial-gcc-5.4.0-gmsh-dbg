@@ -1,0 +1,41 @@
+#%Module1.0#####################################################################
+##
+##
+proc ModulesHelp { } {
+	puts stderr "\t set up PETSc Environment "
+}
+
+set          cflags           "-g -O0"
+set          cxxflags         "-g -O0"
+set          petsc_version   petsc-3.8.0
+
+module-whatis  "\t apt-get install libnetcdf-dev               "
+module-whatis  "\t apt-get install libhdf5-serial-dev  libhdf5-10-dbg libhdf5-dev        "
+module-whatis  "\t apt-get install libexodusii-dev libexodusii5"
+module-whatis  "\t apt-get install openmpi-bin "
+module-whatis  "\t apt-get install valgrind-dbg"
+module-whatis  "\t download petsc with "
+module-whatis  "\t git clone https://bitbucket.org/petsc/petsc $petsc_version "
+module-whatis  "\t cd $petsc_version; git tag; git checkout tags/v3.8.0 -b v3.8.0  "
+module-whatis  "\t petsc configured with "
+module-whatis  "\t ./configure --with-cc='win32fe cl' --with-fc=0 --download-f2cblaslapack --with-mpi-include='/cygdrive/c/Program Files (x86)/Microsoft SDKs/MPI/Include' --with-mpi-lib=\['/cygdrive/c/Program Files (x86)/Microsoft SDKs/MPI/Lib/x64/msmpi.lib'\] --with-mpi-mpiexec='/cygdrive/c/Program Files/Microsoft MPI/Bin/mpiexec.exe' --with-debugging=0 -CFLAGS='-O2 -MD -wd4996' -CXXFLAGS='-O2 -MD -wd4996' --with-file-create-pause=1"
+module-whatis  "\t ./config/configure.py --with-shared-libraries  --with-fc=0 --download-f2cblaslapack --CFLAGS='$cflags'  "
+ 
+eval set  [ array get env HOME ]
+
+#module load epd/7.3.1 
+#module load cuda/4.2
+#local environment
+set          linuxdistro        xenial
+set          compiler           gcc-5.4.0
+set          library_dir        /opt/apps
+## MPI   environment
+## set    mpi_version           mpich2-1.2
+## setenv MPI_DIR               /usr
+## # can set number of threads
+## setenv GOTO_NUM_THREADS       8
+#PETSc environment
+set          method          dbg
+set          petsc_arch      arch-$linuxdistro-$compiler-gmsh-$method
+setenv       PETSC_ARCH      $petsc_arch
+setenv       PETSC_DIR       $library_dir/PETSc/$petsc_version
