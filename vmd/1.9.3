@@ -1,0 +1,22 @@
+#%Module3.1.6#####################################################################
+##
+# for Tcl script use only
+set     version         1.9.3
+
+proc ModulesHelp { } {
+        global version
+        puts stderr "\tThis module loads VMD $version \n"
+}
+
+set     vmd_dir     /opt/apps/VMD/vmd-$version-opengl/vmd
+
+module-whatis   "loads the VMD $version "
+module-whatis  "\t HACK soft link:  libOpenGL.so -> libGL.so   "
+module-whatis  "\t HACK soft link:  mkdir  $vmd_dir/../lib;ln -s  ../vmd/scripts/tcl8.5 $vmd_dir/../lib/tcl8.5  ;ln -s  ../vmd/scripts/tk8.5 $vmd_dir/../lib/tk8.5   "
+
+
+
+prepend-path   VMDDIR           $vmd_dir
+prepend-path   PATH             $vmd_dir
+prepend-path   LD_LIBRARY_PATH  $vmd_dir
+prepend-path   LD_LIBRARY_PATH  /usr/lib/nvidia-340
