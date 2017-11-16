@@ -10,9 +10,13 @@ proc ModulesHelp { } {
 
 set     vmd_dir     /opt/apps/VMD/vmd-$version-opengl/vmd
 
-module-whatis   "loads the VMD $version "
-module-whatis  "\t HACK soft link:  libOpenGL.so -> libGL.so   "
-module-whatis  "\t HACK soft link:  ln -sf ./vmd/scripts /opt/apps/VMD/vmd-1.9.3-opengl/lib "
+module-whatis   'loads the VMD $version '
+module-whatis   '\$ tar -xvf vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz'
+module-whatis   '\$ grep install_ vmd-1.9.3/configure '
+module-whatis   '    \$install_bin_dir="/opt/apps/VMD/vmd-1.9.3-opengl"'
+module-whatis   '    \$install_library_dir="/opt/apps/VMD/vmd-1.9.3-opengl/\$install_name"'
+module-whatis  "\t HACK: soft link:  libOpenGL.so -> libGL.so   "
+module-whatis  "\t HACK: soft link:  ln -sf ./vmd/scripts /opt/apps/VMD/vmd-1.9.3-opengl/lib "
 
 
 prepend-path   VMDDIR           $vmd_dir
