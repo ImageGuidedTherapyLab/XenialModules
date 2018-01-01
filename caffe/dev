@@ -8,11 +8,19 @@ proc ModulesHelp { } {
 
 set          caffe_version   dev
 
+module-whatis  "\t git clone https://github.com/BVLC/caffe"
 module-whatis  "\t This is a guide on how to install Caffe for Ubuntu 16.04 and above, without GPU support (No CUDA required).         "
 module-whatis  "\t https://gist.github.com/nikitametha/c54e1abecff7ab53896270509da80215              "
-module-whatis  "\t git clone https://github.com/BVLC/caffe"
+module-whatis  "\t make pycaffe"
+module-whatis  "\t pip install -U scikit-image"
+module-whatis  "\t sudo apt-get install python-protobuf"
+
+
+ 
+
 
 eval set  [ array get env HOME ]
 
 set          library_dir     /rsrch1/ip/dtfuentes/github/caffe/
 prepend-path PYTHONPATH      $library_dir/python/
+prepend-path LD_LIBRARY_PATH $library_dir/python/
