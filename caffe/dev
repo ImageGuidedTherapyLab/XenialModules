@@ -2,7 +2,7 @@
 ##
 ##
 proc ModulesHelp { } {
-	puts stderr "\t Caffe for Ubuntu 16.04 and above, without GPU support (No CUDA required). "
+	puts stderr "\t Caffe for Ubuntu 16.04 and above, with GPU support (CUDA/cuDNN required). "
 }
 
 
@@ -16,6 +16,10 @@ module-whatis  "\t pip install -U scikit-image"
 module-whatis  "\t sudo apt-get install python-protobuf"
 
 
+module-whatis  "\t https://developer.nvidia.com/rdp/cudnn-archive"
+module-whatis  "\t wget https://developer.nvidia.com/rdp/assets/libcudnn5_5.0.5-1+cuda7.5_amd64-deb "
+module-whatis  "\t wget https://developer.nvidia.com/rdp/assets/libcudnn5-dev_5.0.5-1+cuda7.5_amd64-deb "
+module-whatis  "\t sudo dpkg -i libcudnn5-dev_5.0.5-1+cuda7.5_amd64.deb libcudnn5 "
  
 
 
