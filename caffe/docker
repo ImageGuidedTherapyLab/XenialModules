@@ -8,10 +8,9 @@ proc ModulesHelp { } {
 
 set          caffe_version   dev
 
-module-whatis  "\t git clone https://github.com/BVLC/caffe"
-module-whatis  "\t This is a guide on how to install Caffe for Ubuntu 16.04 and above, without GPU support (No CUDA required).         "
-module-whatis  "\t https://gist.github.com/nikitametha/c54e1abecff7ab53896270509da80215              "
-module-whatis  "\t make pycaffe"
+module-whatis  "\t git clone https://github.com/mohamed-ezz/caffe.git caffe/docker"
+module-whatis  "\t cd caffe/docker;  git branch docker 876e387a6d7f8974f68f42beacd3728b4fc92ff7 ; git checkout docker"
+module-whatis  "\t make; make pycaffe"
 module-whatis  "\t pip install -U scikit-image"
 module-whatis  "\t sudo apt-get install python-protobuf"
 
@@ -25,6 +24,6 @@ module-whatis  "\t sudo dpkg -i libcudnn5-dev_5.0.5-1+cuda7.5_amd64.deb libcudnn
 
 eval set  [ array get env HOME ]
 
-set          library_dir     /rsrch1/ip/dtfuentes/github/caffe/dev
+set          library_dir     /rsrch1/ip/dtfuentes/github/caffe/docker
 prepend-path PYTHONPATH      $library_dir/python/
 prepend-path LD_LIBRARY_PATH $library_dir/python/
