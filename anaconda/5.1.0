@@ -1,0 +1,17 @@
+#%Module3.1.6#####################################################################
+##
+# for Tcl script use only
+set     version        5.1.0 
+
+proc ModulesHelp { } {
+        global version
+        puts stderr "\tThis module loads anaconda $version \n"
+}
+
+module-whatis   "loads the anaconda $version "
+
+set     anaconda_dir     /opt/apps/anaconda/$version
+
+
+prepend-path   PATH             $anaconda_dir
+
