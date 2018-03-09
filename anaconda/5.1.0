@@ -10,7 +10,7 @@ proc ModulesHelp { } {
 
 module-whatis   "loads the anaconda $version "
 
-set     anaconda_dir     /opt/apps/anaconda/$version
+set     anaconda_dir     /opt/apps/anaconda/$version/bin
 
 
 prepend-path   PATH             $anaconda_dir
