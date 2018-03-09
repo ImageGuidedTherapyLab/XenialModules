@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+##
+proc ModulesHelp { } {
+	puts stderr "\t Caffe for Ubuntu 16.04 and above, with GPU support (CUDA/cuDNN required). "
+}
+
+
+set          caffe_version   dev
+
+module-whatis  "\t git clone https://github.com/BVLC/caffe"
+module-whatis  "\t This is a guide on how to install Caffe for Ubuntu 16.04 and above, without GPU support (No CUDA required).         "
+module-whatis  "\t https://gist.github.com/nikitametha/c54e1abecff7ab53896270509da80215              "
+module-whatis  "\t make pycaffe"
+module-whatis  "\t pip install -U scikit-image"
+module-whatis  "\t sudo apt-get install python-protobuf"
+
+
+module-whatis  "\t https://developer.nvidia.com/rdp/cudnn-archive"
+module-whatis  "\t wget https://developer.nvidia.com/rdp/assets/libcudnn5_5.0.5-1+cuda7.5_amd64-deb "
+module-whatis  "\t wget https://developer.nvidia.com/rdp/assets/libcudnn5-dev_5.0.5-1+cuda7.5_amd64-deb "
+module-whatis  "\t sudo dpkg -i libcudnn5-dev_5.0.5-1+cuda7.5_amd64.deb libcudnn5 "
+ 
+
+
+eval set  [ array get env HOME ]
+
+set          library_dir     /rsrch1/ip/dtfuentes/github/caffe/dev
+prepend-path PYTHONPATH      $library_dir/python/
+prepend-path LD_LIBRARY_PATH $library_dir/python/
