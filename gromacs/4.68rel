@@ -3,14 +3,32 @@
 # for Tcl script use only
 set     version         4.68
 
+set gmx_dir /rsrch1/ip/dtfuentes/github/gromacs_4.68-dev_rg-pulling-installrel/
+
 proc ModulesHelp { } {
         global version
         puts stderr "\tThis module loads gromacs $version \n"
+        puts stderr  "\tBUILD_SHARED_LIBS                ON "
+        puts stderr  "\tCMAKE_BUILD_TYPE                 Release "
+        puts stderr  "\tCMAKE_INSTALL_PREFIX             \$gmx_dir "
+        puts stderr  "\tCUDA_HOST_COMPILER               /usr/bin/cc "
+        puts stderr  "\tCUDA_USE_STATIC_CUDA_RUNTIME     OFF "
+        puts stderr  "\tGMX_CPU_ACCELERATION             SSE4.1 "
+        puts stderr  "\tGMX_DEFAULT_SUFFIX               ON "
+        puts stderr  "\tGMX_DOUBLE                       OFF "
+        puts stderr  "\tGMX_FFT_LIBRARY                  fftw3 "
+        puts stderr  "\tGMX_GPU                          OFF "
+        puts stderr  "\tGMX_GSL                          OFF "
+        puts stderr  "\tGMX_MPI                          OFF "
+        puts stderr  "\tGMX_OPENMP                       ON "
+        puts stderr  "\tGMX_QMMM_PROGRAM                 none "
+        puts stderr  "\tGMX_THREAD_MPI                   ON "
+        puts stderr  "\tGMX_X11                          OFF "
+        puts stderr  "\tREGRESSIONTEST_DOWNLOAD          OFF "
 }
 
 module-whatis   "loads the gromacs $version "
 
-set gmx_dir /rsrch1/ip/dtfuentes/github/gromacs_4.68-dev_rg-pulling-installrel/
 set gmxbin    $gmx_dir/bin
 set gmxldlib  $gmx_dir/lib
 set gmxman    $gmx_dir/share/man
