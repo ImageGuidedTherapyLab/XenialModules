@@ -1,0 +1,30 @@
+#%Module3.1.6#####################################################################
+##
+# for Tcl script use only
+set     version         4.68
+
+proc ModulesHelp { } {
+        global version
+        puts stderr "\tThis module loads gromacs $version \n"
+}
+
+module-whatis   "loads the gromacs $version "
+
+set gmx_dir /rsrch1/ip/dtfuentes/github/gromacs_4.68-dev_rg-pulling-install/
+set gmxbin    $gmx_dir/bin
+set gmxldlib  $gmx_dir/lib
+set gmxman    $gmx_dir/share/man
+set gmxdata   $gmx_dir/share/gromacs
+
+setenv GMXBIN     $gmxbin    
+setenv GMXLDLIB   $gmxldlib  
+setenv GMXMAN     $gmxman
+setenv GMXDATA    $gmxdata
+
+prepend-path   PATH             $gmxbin    
+prepend-path   LD_LIBRARY_PATH  $gmxldlib  
+prepend-path   MANPATH          $gmxman
+prepend-path   PKG_CONFIG_PATH  $gmxldlib/pkgconfig
+
+#    if [ -f $GMXBIN/completion.bash ]; then source $GMXBIN/completion.bash;
+ 
