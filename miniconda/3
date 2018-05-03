@@ -1,0 +1,16 @@
+#%Module3.1.6#####################################################################
+##
+# for Tcl script use only
+set     version         3
+
+proc ModulesHelp { } {
+        global version
+        puts stderr "\tThis module loads miniconda$version \n"
+}
+
+set     conda_dir        /opt/apps/miniconda/miniconda3
+
+module-whatis   'loads the miniconda $version '
+
+prepend-path   PATH             $conda_dir/bin
+
