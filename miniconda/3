@@ -13,4 +13,6 @@ set     conda_dir        /opt/apps/miniconda/miniconda3
 module-whatis   'loads the miniconda $version '
 
 prepend-path   PATH             $conda_dir/bin
+prepend-path   LD_LIBRARY_PATH  $conda_dir/lib
 
+#setenv       CUDA_HOME       $conda_dir
