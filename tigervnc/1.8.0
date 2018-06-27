@@ -1,0 +1,16 @@
+#%Module 4.1.2#####################################################################
+##
+
+# for Tcl script use only
+set     version         1.8.0
+
+proc ModulesHelp { } {
+        global dotversion
+        puts stderr "\tThis module loads TigerVNC $version \n"
+}
+
+module-whatis   "Loads TigerVNC $version "
+
+set     tigervnc_dir      /opt/apps/tigervnc/$version
+
+prepend-path    PATH             $tigervnc_dir/usr/bin
