@@ -18,7 +18,7 @@ module-whatis  "\t download petsc with "
 module-whatis  "\t git clone https://bitbucket.org/petsc/petsc $petsc_version "
 module-whatis  "\t cd $petsc_version; git tag; git checkout tags/v3.10.2 -b v3.10.2  "
 module-whatis  "\t petsc configured with "
-module-whatis  "\t ./config/configure.py --with-shared-libraries --CFLAGS='$cflags'  --with-c2html=0 --download-ctetgen  --download-triangle --with-debugging=yes --download-netcdf  --download-zlib  --download-exodusii --download-hdf5 --download-pnetcdf  "
+module-whatis  "\t ./config/configure.py --with-shared-libraries --with-clanguage=c++ --CFLAGS='$cflags' --CXXFLAGS='$cxxflags'  --with-c2html=0 --download-ctetgen  --download-triangle --with-debugging=yes --download-netcdf  --download-zlib  --download-exodusii --download-hdf5 --download-pnetcdf  "
 
  
 eval set  [ array get env HOME ]
