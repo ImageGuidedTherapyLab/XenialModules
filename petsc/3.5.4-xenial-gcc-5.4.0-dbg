@@ -1,0 +1,41 @@
+#%Module1.0#####################################################################
+##
+##
+proc ModulesHelp { } {
+	puts stderr "\t set up PETSc Environment "
+}
+
+set          cflags           "-g -O0"
+set          cxxflags         "-g -O0"
+set          petsc_version   petsc-3.5.4
+
+module-whatis  "\t apt-get install libnetcdf-dev               "
+module-whatis  "\t apt-get install libhdf5-serial-dev  libhdf5-10-dbg libhdf5-dev        "
+module-whatis  "\t apt-get install libexodusii-dev libexodusii5"
+module-whatis  "\t apt-get install openmpi-bin "
+module-whatis  "\t apt-get install valgrind-dbg"
+module-whatis  "\t download petsc with "
+module-whatis  "\t wget http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.5.4.tar.gz"
+module-whatis  "\t petsc configured with "
+module-whatis  "\t ./config/configure.py --with-shared-libraries --with-clanguage=c++ --CFLAGS='-g -O0' --CXXFLAGS='-g -O0' --download-ctetgen  --download-triangle --with-debugging=yes  --download-fblaslapack   --download-netcdf  --download-exodusii --download-hdf5  --with-c2html=0
+"
+
+ 
+eval set  [ array get env HOME ]
+
+#module load epd/7.3.1 
+#module load cuda/4.2
+#local environment
+set          linuxdistro        xenial
+set          compiler           gcc-5.4.0
+set          library_dir        /opt/apps
+## MPI   environment
+## set    mpi_version           mpich2-1.2
+## setenv MPI_DIR               /usr
+## # can set number of threads
+## setenv GOTO_NUM_THREADS       8
+#PETSc environment
+set          method          dbg
+set          petsc_arch      arch-$linuxdistro-$compiler-$method
+setenv       PETSC_ARCH      $petsc_arch
+setenv       PETSC_DIR       $library_dir/PETSc/$petsc_version
