@@ -28,14 +28,13 @@ eval set  [ array get env HOME ]
 #local environment
 set          linuxdistro        xenial
 set          compiler           gcc-5.4.0
-set          library_dir        /opt/apps
+set          library_dir        /rsrch1/ip/ip-comp_rsch_lab
 ## MPI   environment
 ## set    mpi_version           mpich2-1.2
 ## setenv MPI_DIR               /usr
 ## # can set number of threads
 ## setenv GOTO_NUM_THREADS       8
 #PETSc environment
-set          method          dbg
-set          petsc_arch      arch-$linuxdistro-$compiler-$method
+set          petsc_arch      arch-linux2-cxx-debug 
 setenv       PETSC_ARCH      $petsc_arch
 setenv       PETSC_DIR       $library_dir/PETSc/$petsc_version
