@@ -2,17 +2,27 @@
 ##
 # for Tcl script use only
 set     version         3
+set     bazelversion      0.15.2
+set     tfversion         1.11.0
+set     kerasversion     2.2.5
+set     cudaversion     9.2
+set     conda_dir        /opt/apps/miniconda/miniconda3
 
 proc ModulesHelp { } {
-        global version
+        global version cudaversion  numpyversion  kerasversion tfversion  conda_dir bazelversion
         puts stderr "\tThis module loads miniconda$version \n"
+        puts stderr "\tThis module loads miniconda$version for use with python 3.6, Keras $kerasversion, TF $tfversion \n"
+        puts stderr "\tInstall as much as possible with conda/pip, but Conda missing cuda include files. Install cuda, cudnn, nccl from nvidia and point the build here \n"
+        puts stderr "\tminiconda    - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh;  bash Miniconda3-latest-Linux-x86_64.sh -p $conda_dir -b -s"
+        puts stderr "\tgcc          - sudo apt-get install gcc-4.8 g++-4.8                       "
+        puts stderr "\tdependencies - conda install python=3.6.10 pip bazel=$bazelversion  "
+        puts stderr "\tcuda         - conda install cudatoolkit==9.2 cudnn tensorflow-gpu==$tfversion "
+        puts stderr "\tkeras        - pip install keras==$kerasversion nibabel                                                                           "
+        puts stderr "\tapplication  - conda install matplotlib jupyter notebook pandas scikit-learn scikit-image                                         "
+        puts stderr "\tconda list | grep tensor \n"
 }
 
-set     conda_dir        /opt/apps/miniconda/miniconda3
 
 module-whatis   'loads the miniconda $version '
 
 prepend-path   PATH             $conda_dir/bin
-prepend-path   LD_LIBRARY_PATH  $conda_dir/lib
-
-#setenv       CUDA_HOME       $conda_dir
