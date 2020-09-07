@@ -1,0 +1,25 @@
+#%Module3.1.6#####################################################################
+##
+# for Tcl script use only
+set     version         1.4.0
+set     conda_dir        /opt/apps/vmtk/conda/
+
+
+
+
+proc ModulesHelp { } {
+        global version cudaversion  numpyversion  kerasversion tfversion  conda_dir bazelversion
+        puts stderr "\tThis module loads vmtk$version \n"
+        puts stderr "\twget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh\n"
+        puts stderr "\t/opt/apps/vmtk/conda/bin/conda install anaconda-client \n"
+        puts stderr "\t/opt/apps/vmtk/conda/bin/conda update conda anaconda-client \n"
+        puts stderr "\t/opt/apps/vmtk/conda/bin/conda config --set restore_free_channel true \n"
+        puts stderr "\t/opt/apps/vmtk/conda/bin/conda create -n foo -c vmtk python=3.6 itk vtk vmtk   \n"
+        puts stderr "\t/opt/apps/vmtk/conda/bin/conda install -c vmtk vtk itk vmtk                    \n"
+
+}
+
+
+module-whatis   'loads the miniconda $version '
+
+prepend-path   PATH             $conda_dir/bin
