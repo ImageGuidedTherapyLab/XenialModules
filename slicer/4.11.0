@@ -1,0 +1,27 @@
+#%Module3.1.6#####################################################################
+##
+# for Tcl script use only
+set     version         4.11.0
+set     slicer_dir      Slicer-dev-SuperBuild-Debug
+
+proc ModulesHelp { } {
+        global version slicer_dir 
+        puts stderr "\tThis module loads slicer $version \n"
+        puts stderr "\t git clone git://github.com/Slicer/Slicer.git  Slicergithubdev                                                 \n"
+        puts stderr "\t cd Slicergithubdev; ./Utilities/SetupForDevelopment.sh; cd ..                                                 \n"
+        puts stderr "\t mkdir $slicer_dir                                                                                             \n"
+        puts stderr "\t cd  $slicer_dir                                                                                               \n"
+        puts stderr "\t cmake -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DQt5_DIR:STRING=/opt/qt511/lib/cmake/Qt5 ../Slicergithubdev/  \n"
+        puts stderr "\t Look for 'CMake Error' - https://discourse.slicer.org/t/build-fails-on-linux-configuration-incomplete/10898   \n"
+        puts stderr "\t  https://discourse.slicer.org/t/slicer-not-build-on-ubuntu-16-04-build-failed/3641                            \n"
+        puts stderr "\t  https://gist.github.com/paddy74/f4fed243c7142fbf38c7025201f16d5d                                             \n"
+
+}
+
+
+
+
+
+
+module-whatis   'loads the slicer $version '
+
