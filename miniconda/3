@@ -17,7 +17,7 @@ proc ModulesHelp { } {
         puts stderr "\tgcc          - sudo apt-get install gcc-4.8 g++-4.8                       "
         puts stderr "\tdependencies - conda install python=3.6.10 pip bazel=$bazelversion  "
         puts stderr "\tcuda         - conda install cudatoolkit==9.2 cudnn tensorflow-gpu==$tfversion "
-        puts stderr "\tkeras        - pip install keras==$kerasversion nibabel                                         "
+        puts stderr "\tkeras        - pip install keras==$kerasversion nibabel  simpleitk             "
         puts stderr "\tapplication  - conda install matplotlib jupyter notebook pandas scikit-learn scikit-image  tqdm "
         puts stderr "\tconda list | grep tensor \n"
 }
