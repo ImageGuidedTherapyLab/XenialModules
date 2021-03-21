@@ -21,7 +21,7 @@ module-whatis  "\t sudo apt-get install aptitude                                
 module-whatis  "\t sudo aptitude install libreadline-dev                         "
 module-whatis  "\t sudo aptitude install libcurl4-openssl-dev                    "
 module-whatis  "\t sudo apt-get install default-jdk                              "
-module-whatis  "\t sudo apt-get install texlive-latex-base  texlive-fonts-extra  "
+module-whatis  "\t sudo apt-get install texlive-latex-base  texlive-fonts-extra texinfo "
 module-whatis  "\t sudo apt-get install libcairo2-dev                            "
 module-whatis  "\t # Install r-base with ubuntu                                  "
 module-whatis  "\t sudo apt-get install r-base                                   "
