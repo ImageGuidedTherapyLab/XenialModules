@@ -1,0 +1,39 @@
+#%Module1.0#####################################################################
+##
+## https://jtremblay.github.io/software_installation/2017/06/21/Install-R-3.4.0-and-RStudio-on-Ubuntu-16.04
+
+set          r_version         R-3.4.0
+set          r_install        /opt/apps/R/R-3.4.0-install 
+
+proc ModulesHelp { } {
+        global r_version         
+	puts stderr "\t set up R $r_version"
+}
+
+module-whatis  "\t # Install all dependencies                                    "
+module-whatis  "\t sudo apt-get install build-essential                          "
+module-whatis  "\t sudo apt-get install fort77                                   "
+module-whatis  "\t sudo apt-get install xorg-dev                                 "
+module-whatis  "\t sudo apt-get install liblzma-dev  libblas-dev gfortran        "
+module-whatis  "\t sudo apt-get install gcc-multilib                             "
+module-whatis  "\t sudo apt-get install gobjc++                                  "
+module-whatis  "\t sudo apt-get install aptitude                                 "
+module-whatis  "\t sudo aptitude install libreadline-dev                         "
+module-whatis  "\t sudo aptitude install libcurl4-openssl-dev                    "
+module-whatis  "\t sudo apt-get install default-jdk                              "
+module-whatis  "\t sudo apt-get install texlive-latex-base                       "
+module-whatis  "\t sudo apt-get install libcairo2-dev                            "
+module-whatis  "\t # Install r-base with ubuntu                                  "
+module-whatis  "\t sudo apt-get install r-base                                   "
+
+module-whatis  "\t # Install newest version of R from source                     "
+module-whatis  "\t  wget https://cran.r-project.org/src/base/R-3/R-3.4.0.tar.gz  "
+module-whatis  "\t ./configure --prefix=$r_install --with-x=yes --enable-R-shlib=yes --with-cairo=yes"
+
+module-whatis  "\t make "
+module-whatis  "\t # NEWS.pdf file is missing and will make installation crash. "
+module-whatis  "\t touch doc/NEWS.pdf "
+module-whatis  "\t make install "
+
+
+prepend-path   PATH             $r_install
