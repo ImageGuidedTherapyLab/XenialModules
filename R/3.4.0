@@ -3,7 +3,7 @@
 ## https://jtremblay.github.io/software_installation/2017/06/21/Install-R-3.4.0-and-RStudio-on-Ubuntu-16.04
 
 set          r_version         R-3.4.0
-set          r_install        /opt/apps/R/R-3.4.0-install 
+set          r_install        /opt/apps/R/R-3.4.0-install
 
 proc ModulesHelp { } {
         global r_version         
@@ -36,4 +36,4 @@ module-whatis  "\t touch doc/NEWS.pdf "
 module-whatis  "\t make install "
 
 
-prepend-path   PATH             $r_install
+prepend-path   PATH             $r_install/bin
